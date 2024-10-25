@@ -1,4 +1,4 @@
-Пример использования Rest-запросов ProductsRestClient ("manager") для обращения к сервису ("catalogue") связанному с бд postgres
+Пример использования Rest-запросов RestClient ("manager") для обращения к сервису ("catalogue") связанному с бд postgres
 + пример использования защиты "spring-boot-starter-security" со стороны сервера.
 
 см. https://github.com/alex-kosarev/sc24/tree/SC24EP04-oauth
