@@ -1,6 +1,7 @@
 server:
   port: 8080
 
+# пользователь с которым обращается через RestClient к серверу "catalogue"
 selmag:
   services:
     catalogue:
@@ -8,6 +9,7 @@ selmag:
       username: catalogue_service_user
       password: password
 
+# пользователь с которым web-приложение "manager-app" обращается к бд "manager" для получения прав тек. пользователя
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5433/manager
