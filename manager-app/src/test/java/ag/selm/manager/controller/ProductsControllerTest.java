@@ -10,6 +10,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.ui.ConcurrentModel;
 
 import java.util.List;
@@ -82,4 +83,13 @@ class ProductsControllerTest {
         // проверим, что е было больше обращение к createProduct
         verifyNoMoreInteractions(this.productsRestClient);
     }
+
+    @Test
+    void getGryptPassword() {
+        // операция получения пароля в зашифрованном виде, чтобы не хранить пароль в открытом виде в бд: "{noop}password",
+        // а виде "{bcrypt}..."
+        // см. https://rutube.ru/video/5b43bc8e6727f0b57bb059fae7020be5/ время 33:40
+        System.out.println(new BCryptPasswordEncoder().encode("password"));
+    }
+
 }

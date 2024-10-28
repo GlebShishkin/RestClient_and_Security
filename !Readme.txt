@@ -1,5 +1,8 @@
 Пример использования Rest-запросов RestClient ("manager") для обращения к сервису ("catalogue") связанному с бд postgres
-+ пример использования защиты "spring-boot-starter-security" со стороны сервера.
+пример защиты "spring-boot-starter-security":
+ a) со стороны сервера ("catalogue") на основе роли поьзователя RestClient
+ b) аутентификация со стороны web-приложения ("manager-app") из бд "manager", где хранятся логины/пароли пользователей + их роли
+ PS. Для хранения пароля в открытом виду в бд нужно писать "{noop}password". Если пароль зашифровать через BCryptPasswordEncoder то хранить. как "{bcrypt}..."
 
 см. https://github.com/alex-kosarev/sc24/tree/SC24EP04-oauth
 
@@ -11,6 +14,6 @@ docker run --name manager-db -p 5433:5432 -e POSTGRES_DB=manager -e POSTGRES_USE
 Два приложения:
 web-приложение "manager-app" (порт 8080) посылает запросы через ProductsRestClient приложению "catalogue-service" (порт 8081) связанному с бд "catalogue".
 
-Для входа в web-приложение "manager-app" используются:
+Если закомментарить защиту для входа в web-приложение "manager-app", то для входа используются:
 логин = user
 пароль нужно взять из Run window при запуске в InteligeIdea
